@@ -5,6 +5,12 @@ import java.util.List;
 import adjacencylist.AdjLinkedList;
 import vertex.Vertex;
 
+/**
+ * Class to represent a Graph.
+ *
+ * @author Matthew Shoemaker
+ *
+ */
 public class Graph {
     private List<Vertex> vertices;
     private AdjLinkedList[] adj;

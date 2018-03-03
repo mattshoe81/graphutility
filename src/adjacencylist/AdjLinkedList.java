@@ -3,7 +3,7 @@ package adjacencylist;
 import vertex.Vertex;
 
 /**
- * A singly linked list used to store a reference to the vertices that are
+ * A singly-linked list used to store a reference to the vertices that are
  * adjacent to the vertex at the front of the list.
  *
  * @author Matthew Shoemaker

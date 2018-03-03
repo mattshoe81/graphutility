@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import vertex.Vertex;
 
+
 public class VertexTest {
 
     @Test

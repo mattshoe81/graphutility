@@ -3,8 +3,9 @@ package vertex;
 import adjacencylist.AdjLinkedList;
 
 /**
+ * Class to represent a Vertex in a graph.
  *
- * @author matts
+ * @author Matthew Shoemaker
  *
  */
 public class Vertex {
@@ -133,7 +134,6 @@ public class Vertex {
 
         return equals;
     }
-
 }
 
 //
