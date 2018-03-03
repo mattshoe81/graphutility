@@ -1,9 +1,10 @@
+package vertextest;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import vertex.Vertex;
-
 
 public class VertexTest {
 

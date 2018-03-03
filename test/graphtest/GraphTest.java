@@ -1,5 +1,7 @@
+package graphtest;
+
 import static org.junit.Assert.*;
-import graph.Graph;
+
 import org.junit.Test;
 
 public class GraphTest {
