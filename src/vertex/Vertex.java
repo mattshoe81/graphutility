@@ -22,8 +22,8 @@ public class Vertex {
         WHITE, GRAY, BLACK, RED, YELLOW, NONE
     }
 
-    public Vertex(int id, AdjLinkedList adj) {
-        this.adj = adj;
+    public Vertex(int id) {
+        this.adj = new AdjLinkedList();
         this.id = id;
         this.parent = null;
         this.dist = -1;
@@ -33,8 +33,8 @@ public class Vertex {
         this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent, AdjLinkedList adj) {
-        this.adj = adj;
+    public Vertex(int id, Vertex parent) {
+        this.adj = new AdjLinkedList();
         this.id = id;
         this.parent = parent;
         this.dist = -1;
@@ -44,8 +44,8 @@ public class Vertex {
         this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent, Color color, AdjLinkedList adj) {
-        this.adj = adj;
+    public Vertex(int id, Vertex parent, Color color) {
+        this.adj = new AdjLinkedList();
         this.id = id;
         this.parent = parent;
         this.dist = -1;
@@ -113,6 +113,25 @@ public class Vertex {
 
     public void clearAdjacencies() {
         this.adj.clearAdjacencies();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        boolean equals = true;
+        if (object.getClass().equals(this.getClass())) {
+            Vertex o = (Vertex) object;
+            if (this.id != o.id() || this.dist != o.dist()
+                    || this.color != o.color()
+                    || this.discovery != o.discovery()
+                    || this.finish != o.finish() || this.directed != o.directed
+                    || !this.adj.equals(o.adjacencies())) {
+                equals = false;
+            }
+        } else {
+            equals = false;
+        }
+
+        return equals;
     }
 
 }

@@ -7,9 +7,6 @@ import vertex.Vertex;
  * adjacent to the vertex at the front of the list.
  *
  * @author Matthew Shoemaker
- *
- * @param <Vertex>
- *            this class is parameterized by the type Vertex
  */
 public class AdjLinkedList {
 
@@ -19,6 +16,7 @@ public class AdjLinkedList {
     }
 
     private Node preFront;
+    private Node current;
     private Node rear;
     private int length;
 
@@ -26,6 +24,7 @@ public class AdjLinkedList {
         this.preFront = new Node();
         this.preFront.next = null;
         this.rear = this.preFront;
+        this.current = this.preFront;
         this.length = 0;
     }
 
@@ -61,9 +60,37 @@ public class AdjLinkedList {
         return adjacencies;
     }
 
+    public Vertex advance() {
+        this.current = this.current.next;
+
+        return this.current.data;
+    }
+
     public static AdjLinkedList[] getAdjacencyList(int size) {
 
         return new AdjLinkedList[size];
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        boolean equals = true;
+        if (this.getClass().equals(object.getClass())) {
+            AdjLinkedList o = (AdjLinkedList) object;
+            if (this.length == o.length) {
+                int k = 0;
+                while (k < this.length && equals) {
+                    Vertex thisNode = this.advance();
+                    Vertex oNode = o.advance();
+                    if (!thisNode.equals(oNode)) {
+                        equals = false;
+                    }
+
+                    k++;
+                }
+            }
+        }
+
+        return equals;
     }
 
 }

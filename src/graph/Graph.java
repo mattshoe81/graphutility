@@ -7,7 +7,6 @@ import vertex.Vertex;
 
 public class Graph {
     private List<Vertex> vertices;
-    private List<Edge> edges;
     private AdjLinkedList[] adj;
 
     public Graph(List<Vertex> vertices) {
@@ -21,6 +20,18 @@ public class Graph {
         for (int k = 0; k < adjLinkedLists.length; k++) {
             this.adj[k] = adjLinkedLists[k];
         }
+    }
+
+    public void setVertices(List<Vertex> vertices) {
+        this.vertices = vertices;
+    }
+
+    public List<Vertex> vertices() {
+        return this.vertices;
+    }
+
+    public AdjLinkedList[] adjacencyList() {
+        return this.adj;
     }
 
 }
