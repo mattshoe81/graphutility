@@ -5,13 +5,13 @@ import vertex.Vertex;
 /**
  * A singly linked list used to store a reference to the vertices that are
  * adjacent to the vertex at the front of the list.
- * 
+ *
  * @author Matthew Shoemaker
  *
  * @param <Vertex>
  *            this class is parameterized by the type Vertex
  */
-public class AdjacencyLinkedList {
+public class AdjLinkedList {
 
     private class Node {
         Vertex data;
@@ -22,7 +22,7 @@ public class AdjacencyLinkedList {
     private Node rear;
     private int length;
 
-    public AdjacencyLinkedList() {
+    public AdjLinkedList() {
         this.preFront = new Node();
         this.preFront.next = null;
         this.rear = this.preFront;
@@ -35,7 +35,7 @@ public class AdjacencyLinkedList {
         }
     }
 
-    private void addAdjacency(Vertex v) {
+    public void addAdjacency(Vertex v) {
         // Build the new node
         Node newNode = new Node();
         newNode.data = v;

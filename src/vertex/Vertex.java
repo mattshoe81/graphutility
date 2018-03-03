@@ -1,5 +1,7 @@
 package vertex;
 
+import adjacencylist.AdjLinkedList;
+
 public class Vertex {
 
     private int id;
@@ -8,45 +10,44 @@ public class Vertex {
     private Color color;
     private int discovery;
     private int finish;
+    public boolean directed;
+    private AdjLinkedList adj;
 
     public static enum Color {
         WHITE, GRAY, BLACK, RED, YELLOW, NONE
     }
 
-    public Vertex(int id) {
+    public Vertex(int id, AdjLinkedList adj) {
+        this.adj = adj;
         this.id = id;
         this.parent = null;
         this.dist = -1;
         this.color = Color.NONE;
         this.discovery = -1;
         this.finish = -1;
+        this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent) {
+    public Vertex(int id, Vertex parent, AdjLinkedList adj) {
+        this.adj = adj;
         this.id = id;
         this.parent = parent;
         this.dist = -1;
         this.color = Color.NONE;
         this.discovery = -1;
         this.finish = -1;
+        this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent, int dist) {
+    public Vertex(int id, Vertex parent, Color color, AdjLinkedList adj) {
+        this.adj = adj;
         this.id = id;
         this.parent = parent;
-        this.dist = dist;
-        this.color = Color.NONE;
-        this.discovery = -1;
-        this.finish = -1;
-    }
-
-    public Vertex(int id, Vertex parent, int dist, Color color) {
-        this.id = id;
-        this.parent = parent;
-        this.dist = dist;
+        this.dist = -1;
         this.color = color;
         this.discovery = -1;
         this.finish = -1;
+        this.directed = false;
     }
 
     public int id() {
@@ -93,4 +94,30 @@ public class Vertex {
         this.finish = finish;
     }
 
+    public AdjLinkedList adjacencies() {
+        return this.adj;
+    }
+
+    public void setAdjacencies(AdjLinkedList adj) {
+        this.adj = adj;
+    }
+
+    public void addAdjacency(Vertex v) {
+        this.adj.addAdjacency(v);
+    }
+
 }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
