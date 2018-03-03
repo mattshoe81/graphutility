@@ -3,12 +3,15 @@ package adjacencylist;
 import vertex.Vertex;
 
 /**
- * A singly-linked list used to store a reference to the vertices that are
+ * A singly-linked list used to store references to the vertices that are
  * adjacent to the vertex at the front of the list.
  *
  * @author Matthew Shoemaker
+ *
+ * @convention
+ *
  */
-public class AdjLinkedList {
+public class AdjLinkedList implements SinglyLinkedList {
 
     private class Node {
         Vertex data;
@@ -20,6 +23,9 @@ public class AdjLinkedList {
     private Node rear;
     private int length;
 
+    /**
+     * Initializes an empty singly-linked list
+     */
     public AdjLinkedList() {
         this.preFront = new Node();
         this.preFront.next = null;
@@ -59,11 +65,19 @@ public class AdjLinkedList {
 
         return adjacencies;
     }
+    
+    public Vertex currentVertex() {
+        return this.current.data;
+    }
 
     public Vertex advance() {
         this.current = this.current.next;
 
         return this.current.data;
+    }
+    
+    public int length() {
+        return this.length;
     }
 
     public static AdjLinkedList[] getAdjacencyList(int size) {
