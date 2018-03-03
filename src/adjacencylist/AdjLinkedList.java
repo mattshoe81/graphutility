@@ -1,5 +1,6 @@
 package adjacencylist;
 
+import linkedlist.SinglyLinkedList1;
 import vertex.Vertex;
 
 /**
@@ -8,10 +9,8 @@ import vertex.Vertex;
  *
  * @author Matthew Shoemaker
  *
- * @convention
- *
  */
-public class AdjLinkedList implements SinglyLinkedList {
+public class AdjLinkedList extends SinglyLinkedList1<Vertex> {
 
     private class Node {
         Vertex data;
@@ -65,17 +64,19 @@ public class AdjLinkedList implements SinglyLinkedList {
 
         return adjacencies;
     }
-    
+
     public Vertex currentVertex() {
         return this.current.data;
     }
 
+    @Override
     public Vertex advance() {
         this.current = this.current.next;
 
         return this.current.data;
     }
-    
+
+    @Override
     public int length() {
         return this.length;
     }
@@ -105,6 +106,96 @@ public class AdjLinkedList implements SinglyLinkedList {
         }
 
         return equals;
+    }
+
+    @Override
+    public void add(T object) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Vertex remove(int index) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void tranferFrom(Object o) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void newInstance() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Vertex removeFront() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Vertex removeRear() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Vertex contains(Vertex object) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void tranferFrom(Vertex source) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void moveToRear() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void focus() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Vertex remove() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Vertex retreat() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void moveToFront() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void insert(Vertex element) {
+        // TODO Auto-generated method stub
+
     }
 
 }
