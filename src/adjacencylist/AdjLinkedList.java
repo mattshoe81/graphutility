@@ -61,4 +61,9 @@ public class AdjLinkedList {
         return adjacencies;
     }
 
+    public static AdjLinkedList[] getAdjacencyList(int size) {
+
+        return new AdjLinkedList[size];
+    }
+
 }

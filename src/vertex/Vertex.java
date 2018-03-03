@@ -2,6 +2,11 @@ package vertex;
 
 import adjacencylist.AdjLinkedList;
 
+/**
+ *
+ * @author matts
+ *
+ */
 public class Vertex {
 
     private int id;
@@ -104,6 +109,10 @@ public class Vertex {
 
     public void addAdjacency(Vertex v) {
         this.adj.addAdjacency(v);
+    }
+
+    public void clearAdjacencies() {
+        this.adj.clearAdjacencies();
     }
 
 }
