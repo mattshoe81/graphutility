@@ -1,6 +1,6 @@
 package vertex;
 
-import adjacencylist.AdjLinkedList;
+import java.util.LinkedList;
 
 /**
  * Class to represent a Vertex in a graph.
@@ -10,21 +10,21 @@ import adjacencylist.AdjLinkedList;
  */
 public class Vertex {
 
-    private int id;
+    private String id;
     private Vertex parent;
     private int dist;
     private Color color;
     private int discovery;
     private int finish;
     public boolean directed;
-    private AdjLinkedList adj;
+    private LinkedList<Vertex> adjacencies;
 
     public static enum Color {
         WHITE, GRAY, BLACK, RED, YELLOW, NONE
     }
 
-    public Vertex(int id) {
-        this.adj = new AdjLinkedList();
+    public Vertex(String id) {
+        this.adjacencies = new LinkedList<Vertex>();
         this.id = id;
         this.parent = null;
         this.dist = -1;
@@ -34,8 +34,8 @@ public class Vertex {
         this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent) {
-        this.adj = new AdjLinkedList();
+    public Vertex(String id, Vertex parent) {
+        this.adjacencies = new LinkedList<Vertex>();
         this.id = id;
         this.parent = parent;
         this.dist = -1;
@@ -45,8 +45,8 @@ public class Vertex {
         this.directed = false;
     }
 
-    public Vertex(int id, Vertex parent, Color color) {
-        this.adj = new AdjLinkedList();
+    public Vertex(String id, Vertex parent, Color color) {
+        this.adjacencies = new LinkedList<Vertex>();
         this.id = id;
         this.parent = parent;
         this.dist = -1;
@@ -56,7 +56,7 @@ public class Vertex {
         this.directed = false;
     }
 
-    public int id() {
+    public String id() {
         return this.id;
     }
 
@@ -80,7 +80,7 @@ public class Vertex {
         return this.finish;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -100,20 +100,30 @@ public class Vertex {
         this.finish = finish;
     }
 
-    public AdjLinkedList adjacencies() {
-        return this.adj;
+    public LinkedList<Vertex> adjacencies() {
+        return this.adjacencies;
     }
 
-    public void setAdjacencies(AdjLinkedList adj) {
-        this.adj = adj;
+    public void setAdjacencies(LinkedList<Vertex> adj) {
+        this.adjacencies = adj;
     }
 
     public void addAdjacency(Vertex v) {
-        this.adj.addAdjacency(v);
+        this.adjacencies.add(v);
     }
 
-    public void clearAdjacencies() {
-        this.adj.clearAdjacencies();
+    public void clearSearchData() {
+        this.color = Color.WHITE;
+        this.dist = -1;
+        this.parent = null;
+    }
+
+    public void setDistance(int distance) {
+        this.dist = distance;
+    }
+
+    public int getDistance() {
+        return this.dist;
     }
 
     @Override
@@ -125,7 +135,7 @@ public class Vertex {
                     || this.color != o.color()
                     || this.discovery != o.discovery()
                     || this.finish != o.finish() || this.directed != o.directed
-                    || !this.adj.equals(o.adjacencies())) {
+                    || !this.adjacencies.equals(o.adjacencies())) {
                 equals = false;
             }
         } else {
@@ -133,6 +143,11 @@ public class Vertex {
         }
 
         return equals;
+    }
+
+    @Override
+    public String toString() {
+        return this.id;
     }
 }
 
